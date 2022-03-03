@@ -1,0 +1,67 @@
+{% include 'admin_header.html' %}
+
+
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/static/card2.jpg); background-attachment: fixed;height: 200px" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t" style="height: 200px">
+
+
+						<div class="display-tc animate-box" data-animate-effect="fadeIn" style="height: 200px">
+<body>
+	<section>
+
+</body>
+
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+<center>
+<h1 style="font-weight: bold;color: orange">Sellers</h1>
+
+<form method="post">
+	<div style="overflow: auto;width: 1000px;">
+	 <table class="table" style="color: black">
+	 	<tr>
+	 		<th>sl.no</th>
+	 		<th>Seller</th>
+	 		<th>Place</th>
+	 		<th>Phone</th>
+	 		<th>Email</th>
+	 		<th>Address</th>
+	 		{% for row in data['seller'] %}
+	 		<tr>
+	 			<td>{{loop.index}}</td>
+	 			<td>{{row['Sellername']}}</td>
+	 			<td>{{row['Place']}}</td>
+	 			<td>{{row['Phone']}}</td>
+	 			<td> {{row['Email']}}</td>
+	 			<td>{{row['Address']}}</td>
+	 			{% if row['user_type']=="pending" %}
+		 			<td><a href="?action=block&id={{row['login_id']}}" class="btn btn-danger">Block</a></td>
+		 			<td><a href="?action=unblock&id={{row['login_id']}}" class="btn btn-primary">UnBlock</a></td>
+		 		{% elif row['user_type']=="sellers" %}
+		 			<td><a href="?action=unblock&id={{row['login_id']}}" class="btn btn-warning">UnBlock</a></td>
+	 			{% elif row['user_type']=="seller" %}
+	 				<td><a href="?action=block&id={{row['login_id']}}" class="btn btn-danger">Block</a></td>
+ 				{% endif %}
+	 		</tr>
+	 		{% endfor %}
+	 	</tr>
+	 </table>
+	 </div>
+</form>
+</center>
+</section>	
+
+
+
+{% include 'footer.html'%}

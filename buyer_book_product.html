@@ -1,0 +1,51 @@
+{%include 'buyer_header.html'%}
+
+
+
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/static/images/imgc2.jpg); background-attachment: fixed;height: auto" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div class="display-t">
+
+
+                        <div class="display-tc animate-box" data-animate-effect="fadeIn">
+<script type="text/javascript">
+		function TestOnTextChange(){
+
+			var a= document.getElementById("amount").value;
+			var b= document.getElementById("nopn").value;
+								 		
+			var s=parseInt(a)*parseInt(b)
+			alert(s);
+			document.getElementById("total").value=s;
+								 		
+								 		
+			}
+	</script>
+<form method="post">
+<table border="2px" class="table" style="color: white">
+	<tr>
+		<td style="color: #FFA500">Quantity</td>
+		<td><select name="quantity" onchange="TestOnTextChange()" id="nopn"> 
+			{% for i in range (1,data['qua'] |int+1)  %}
+			<option>{{i}}</option>
+			{% endfor %}
+		</select></td>
+		<input type="hidden" name="amount" id="amount" value="{{data['amt']}}">
+		<td style="color: #FFA500">Amount</td>
+		<td><input type="number"  name="total_amount" id="total" value="{{data['amt']}}"></td>
+		<td><input type="submit" name="submit" value="Buy"></td>
+	</tr>
+		
+
+</table>
+
+		</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+{% include 'footer.html' %}

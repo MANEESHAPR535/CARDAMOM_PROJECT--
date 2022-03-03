@@ -1,0 +1,85 @@
+{% include 'admin_header.html' %}
+
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/static/card2.jpg); background-attachment: fixed;height: auto" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+
+
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+<body>
+	<section>
+		<center>
+		<form method="post">
+{% if data['updater'] %}
+<h1>UPDATE PRICE</h1>
+
+	<table class="table" style="width: 400px">
+		<tr>
+			<th>Price</th>
+			<td><input type="text" name="price" value="{{data['updater'][0]['Price']}}"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="update" value="update" class="btn btn-primary"></td>
+		</tr>
+	</table>
+		
+
+{% else %}
+
+<h1>MANAGE PRICE</h1>
+
+	<table class="table" style="width: 100px">
+		<tr>
+			<th>Price</th>
+			<td><input type="number" name="price" required></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-primary" ></td>
+		</tr>
+	</table>
+		
+
+{% endif %}
+
+
+</form>
+</center>
+</section>	
+</body>
+
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+<center>
+<h2>view Price</h2>
+
+	 <table class="table" style="width: 200px">
+	 	<tr>
+	 		<th>sl.no</th>
+	 		<th>Price</th>
+	 		{% for row in data['price'] %}
+	 		<tr>
+	 			<td>{{loop.index}}</td>
+	 			<td>{{row['Price']}}</td>
+	 			
+	 			<td><a href="?action=delete&id={{row['Price_id']}}" class="btn btn-danger">delete</a></td>
+	 			<td><a href="?action=update&id={{row['Price_id']}}" class="btn btn-warning">update</a></td>
+	 		</tr>
+	 		{% endfor %}
+	 	</tr>
+	 </table>
+
+</center>
+
+
+{% include 'footer.html'%}

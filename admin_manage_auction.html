@@ -1,0 +1,81 @@
+{% include 'admin_header.html' %}
+
+
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/static/card2.jpg); background-attachment: fixed;height: auto" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t" >
+
+
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+	
+		<center>
+		<form method="post">
+
+<h1>PARTICIPATE AUCTION</h1>
+
+	<table border="10px" class="table">
+		
+		<tr>
+			<th>AMOUNT</th>
+			<td><input type="number" name="amt" value="{{data['amt']}}" required></td>
+		</tr>
+		<tr>
+			<th>AUCTION START DATE</th>
+			<td><input type="date" name="date" required></td>
+	</tr>
+		<tr>
+			<th>AUCTION END DATE</th>
+			<td><input type="date" name="edate" required></td>
+	</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="Add" class="btn btn-info" ></td>
+		</tr>
+	</table>
+		
+
+
+
+</center>
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+<!-- <center>
+<h2>view Auction</h2>
+
+	 <table border="5px" style="color: black!important" class="table">
+	 	<tr>
+	 		<th>sl.no</th>
+	 		<th>Quality</th>
+	 		<th>Amount</th>
+	 		<th>Auctiondate</th>
+	 		<th>Updated Date</th>
+	 		{% for row in data['auction'] %}
+	 		<tr>
+	 			<td>{{loop.index}}</td>
+	 			<td>{{row['Quality']}} - {{row['percent']}}</td>
+	 			<td>{{row['amount']}}</td>
+	 			<td>{{row['auction_date']}}</td>
+	 			<td>{{row['update_date']}}</td>
+	 			<td><a href="?action=delete&id={{row['auction_id']}}" class="btn btn-danger">delete</a></td>
+	 			
+	 		</tr>
+	 		{% endfor %}
+	 	</tr>
+	 </table>
+ -->
+<!-- 	
+	</center> -->
+</form>
+
+
+
+
+{% include 'footer.html'%}
